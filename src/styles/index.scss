@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+@import './colors';
+@import './functions';
+
+* {
+    @include boxSet();
+}
+
+body {
+    @include flexSet(center, center, column);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.container {
+    max-width: 350px; 
+    min-height: 40vh;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+    .imgBox {
+        text-align: center;
+
+        img{
+            width: 16rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    h2 {
+        color: $mainColor;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+        color: $shadow5;
+        margin-bottom: 2rem;
+    }
+
+    form {
+        @include flexSet(default, default, column);
+        
+        input[type="email"] {
+            margin-top: 3rem;
+        }
+
+        input[type="submit"] {
+            padding: 0.4rem;
+            margin-top: 2rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 300;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            color: $wtColor;
+            background: $mainColor
+        }
+
+        input[type="submit"]:hover {
+            letter-spacing: 0.5px;
+        }
+
+        .inputBox {
+            position: relative;
+        }
+        
+        .inputBox input {
+            font-size: 0.9rem;
+            color: $shadow7;
+            width: 100%;
+        }
+
+        .inputBox:first-child {
+            margin-bottom: 1.5rem;
+        }
+
+        .inputBox input::placeholder {
+            color: $shadow5;
+        }
+
+        .inputBox .underline::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: -5px;
+            left: 0;
+            color: $shadow2;
+        }
+        
+        .inputBox .underline::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            bottom: -5px;
+            left: 0;
+            background: $mainColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .inputBox input:focus ~ .underline::after {
+            transform: scaleX(1);
+        }
+
+        .passwordF {
+            padding: 0.7rem 0;
+            text-align: end;
+        }
+        
+        .passwordF a {
+            color: $bcColor;
+            font-size: 0.7rem;
+            text-decoration: underline;
+        }
+    }
+
+    .spanBox {
+        @include flexSet(default, default, column);
+        text-align: center;
+        margin-top: 1.5rem;
+
+        span {
+            font-size: 0.8rem;
+            color: $shadow5;
+        }
+    }
+}
+
+.warningBox {
+    text-align: center;
+    position: fixed;
+    top: 5%;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    color: $dgString;
+    width: 330px; 
+    background: $dgColor;
+}
+
+.goodBox {
+    text-align: center;
+    position: fixed;
+    top: 5%;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    color: #165724; 
+    width: 330px; 
+    background: #d4edda;
+}
+
+

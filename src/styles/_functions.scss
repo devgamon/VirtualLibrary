@@ -1,0 +1,17 @@
+@mixin flexSet($justify_content, $align_items, $flex_direction){
+    display: flex;
+    justify-content: $justify_content;
+    align-items: $align_items;
+    flex-direction: $flex_direction;
+}
+
+@mixin boxSet(){
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: .2s linear;
+}
