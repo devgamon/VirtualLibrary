@@ -1,3 +1,176 @@
-body{
-    background: #000;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: 0.2s linear;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: default;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+}
+.container .navbar {
+  min-height: 100vh;
+  width: 15%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #35187f;
+}
+.container .navbar .logoBox {
+  text-align: center;
+}
+.container .navbar .logoBox img {
+  width: 12rem;
+}
+.container .navbar ul li a {
+  display: flex;
+  justify-content: default;
+  align-items: center;
+  flex-direction: default;
+  margin: 8px 0;
+  padding: 14px 12px;
+  color: #fff;
+}
+.container .navbar ul li a span {
+  margin-left: 20px;
+}
+.container .navbar ul li a:hover {
+  padding-left: 20px;
+  background: #fff;
+  color: #35187f;
+}
+.container .containerGen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+.container .containerGen .header {
+  padding: 2rem 0rem;
+  width: 60%;
+}
+.container .containerGen .header h2 {
+  text-align: left;
+  color: #35187f;
+}
+.container .containerGen .header p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+}
+.container .containerGen .modalContainer {
+  text-align: left;
+  width: 60%;
+}
+.container .containerGen .modalContainer .btnAdd {
+  background: none;
+  color: #35187f;
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+}
+.container .containerGen .modalContainer #fade {
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+.container .containerGen .modalContainer #modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+.container .containerGen .modalContainer #fade, .container .containerGen .modalContainer #modal {
+  transition: 0.5s;
+  opacity: 1;
+  pointer-events: all;
+}
+.container .containerGen .modalContainer .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: default;
+  padding: 1rem;
+}
+.container .containerGen .modalContainer .modal-header h2 {
+  color: #35187f;
+}
+.container .containerGen .modalContainer .modal-header #close-modal {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: red;
+  background: none;
+}
+.container .containerGen .modalContainer .modal-body form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .containerGen .modalContainer .modal-body form input {
+  margin: 0.2rem;
+  padding: 0.6rem;
+  width: 100%;
+}
+.container .containerGen .modalContainer .modal-body form input[type=submit] {
+  cursor: pointer;
+  color: #fff;
+  background: #35187f;
+}
+.container .containerGen .modalContainer #modal.hide, .container .containerGen .modalContainer #fade.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.container .containerGen .modalContainer #modal.hide {
+  top: 0;
+}
+.container .containerGen table tr th {
+  color: #35187f;
+  padding: 0.6rem 5rem;
+}
+.container .containerGen table tr td {
+  padding: 0.6rem 5rem;
+  color: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(95, 95, 95, 0.2);
+  border-collapse: collapse;
+  text-align: center;
+}
+.container .containerGen table tr td a i {
+  color: rgba(0, 0, 0, 0.5);
+}
+.container .containerGen table tr td a i:hover {
+  color: red;
+}
+.container .formContainer form input {
+  padding: 0.2rem 1rem;
+}/*# sourceMappingURL=cadastros.css.map */

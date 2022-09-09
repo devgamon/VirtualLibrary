@@ -1,6 +1,5 @@
-
 <?php header("Access-Control-Allow-Origin: *");
-      include('biblioteca.php');
+      include('./biblioteca.php');
     
 $cd = isset($_GET['cd']) ? $_GET['cd'] : 0;
 

@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  transition: 0.2s linear;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: default;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+}
+.container .navbar {
+  min-height: 100vh;
+  width: 15%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #35187f;
+}
+.container .navbar .logoBox {
+  text-align: center;
+}
+.container .navbar .logoBox img {
+  width: 12rem;
+}
+.container .navbar ul li a {
+  display: flex;
+  justify-content: default;
+  align-items: center;
+  flex-direction: default;
+  margin: 8px 0;
+  padding: 14px 12px;
+  color: #fff;
+}
+.container .navbar ul li a span {
+  margin-left: 20px;
+}
+.container .navbar ul li a:hover {
+  padding-left: 20px;
+  background: #fff;
+  color: #35187f;
+}
+.container .containerGen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}/*# sourceMappingURL=homeAdm.css.map */

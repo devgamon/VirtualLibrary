@@ -29,7 +29,87 @@
         }
     }
 
-    /* Functions que futuramente emplementadas: CadastrarUser, ExcluirUser, AtualizarUser, TrocarFoto, TrocarSenha */
+    function CadastrarUsuario($rm,$nome,$email,$senha,$userstatus,$adm){
+        $sql = 'INSERT INTO usuario(rm, nome, email, senha, user_status, adm) VALUES ('.$rm.',"'.$nome.'","'.$email.'","'.$senha.'","'.$userstatus.'","'.$adm.'")';
+        $destino = 'usuario/fotos/'.$rm;
+        if (is_dir($destino)){
+            mkdir($destino, 0777);
+        }
+        $res = $GLOBALS['conn']->query($sql);
+        if($res){
+          echo "Usuário cadastrado com sucesso!";
+        }else{
+          echo "Erro ao cadastrar";
+        }
+    }
+
+    function MostrarUsuario(){
+        $query = "SELECT rm, nome, email FROM usuario";
+        $result = $GLOBALS['conn']->query($query);
+        if($result){
+            while($fetch = $result->fetch_assoc()) {
+            echo "<tr>";
+            foreach ($fetch as $field => $value) {
+                echo '<td>'.$value.'</td>' ;
+                }
+            }
+        }else{
+            echo "Erro";
+        }
+    }
+
+    function ExcluirUsuario($rm){
+        $sql = 'DELETE FROM usuario WHERE rm = '.$rm;
+        $res = $GLOBALS['conn']->query($sql);
+  
+        if($res)
+          echo "Excluído com sucesso!";
+        else 
+          echo "Erro ao excluir";
+    }
+
+    function AtualizarUsuario($rm,$nome,$nasc,$gen,$tel){
+        $sql = 'UPDATE usuario SET nome = "'.$nome.'",dt_nascimento = "'.$nasc.'", genero = "'.$gen.'", telefone = "'.$tel.'" WHERE rm ='.$rm;
+        $res = $GLOBALS['conn']-> query($sql);
+        if($res)
+            echo "Atualizado com sucesso!";
+        else
+            echo "Erro ao atualizar";
+    }
+    
+    function TrocarFoto($rm,$foto){
+        $destino = 'usuario/fotos/'.$rm.'/'.$foto['name'];
+        if(move_uploaded_file($foto['tmp_name'], $destino)){
+            $sql = 'SELECT * FROM usuario WHERE rm = '.$rm;
+            $res = $GLOBALS['conn']->query($sql);
+            $user = $res->fetch_array();
+            unlink($user['perfil']);
+            $sql = 'UPDATE usuario SET perfil "'.$destino.'" WHERE rm = '.$rm;
+            $res = $GLOBALS['conn']->query($sql);
+                if($res){
+                    echo "Atualizado com sucesso";
+                }else{
+                    echo "Erro ao atualizar foto";
+            }
+        }
+    }
+
+    function TrocarSenha($rm){
+        $msg ='';
+        $nova_senha = ""; //fazer método
+        $sql = 'UPDATE usuario SET senha ="'.$nova_senha.'" WHERE rm = '.$rm;
+        $res = $GLOBALS['conn']->query($sql);
+        $user = $res->fetch_array();
+            if(mail($user['email'], "Biblioteca [nova senha]",$msg)){
+                $sql = 'UPDATE usuario SET senha = "'.$nova_senha.'" WHERE rm = '.$rm;
+                $res = $GLOBALS['conn']->query($sql);
+                    if($res){
+                        echo "Nova senha encaminhada para seu email!";
+                    }else{
+                        echo "Erro ao trocar a senha. Tente novamente";
+            }
+        }
+    }  
 
     function CadastrarGenero($nome){
         $sql = 'INSERT INTO genero VALUES (null, "'.$nome.'")';
@@ -135,6 +215,16 @@
         }else{
           echo "Erro ao cadastrar";
         }
-      }
+    }
+
+    function ExcluirLivro($cd){
+        $sql = 'DELETE FROM livro WHERE cd ='.$cd;
+        $res = $GLOBALS['conn']->query($sql);
+        if($res){
+          echo "Livro excluído";
+        } else {
+          echo "Erro ao excluir";
+        }
+    }
 
 ?>

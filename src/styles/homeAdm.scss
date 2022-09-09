@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+@import './functions';
+@import './colors';
+
+* { @include boxSet(); }
+
+body {
+    @include flexSet(center, center, default);
+    @include wdSet(100vh, 100%);
+}
+
+.container {
+    @include flexSet(center, center, row);
+    @include wdSet(100vh, 100%);
+
+    .navbar {
+        @include wdSet(100vh, 15%);
+        position: fixed; 
+        left: 0;
+        top: 0; 
+        background: $mainColor;
+
+        .logoBox {
+            text-align: center;
+
+            img {
+                width: 12rem;
+            }
+        }
+
+        ul li a {
+            @include flexSet(default, center, default);
+            margin: 8px 0;
+            padding: 14px 12px;
+            color: $wtColor;
+
+            span {
+                margin-left: 20px;
+            }
+        }
+
+        ul li a:hover {
+            padding-left: 20px;
+            background: $wtColor;
+            color: $mainColor
+        }
+    }
+
+    .containerGen {
+        @include flexSet(center, center, column);
+        @include wdSet(100vh, 100%);
+    }
+}

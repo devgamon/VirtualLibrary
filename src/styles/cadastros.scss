@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+@import './functions';
+@import './colors';
+
+* { @include boxSet(); }
+
+body {
+    @include flexSet(center, center, default);
+    @include wdSet(100vh, 100%);
+}
+
+.container {
+    @include flexSet(center, center, row);
+    @include wdSet(100vh, 100%);
+
+    .navbar {
+        @include wdSet(100vh, 15%);
+        position: fixed; 
+        left: 0;
+        top: 0; 
+        background: $mainColor;
+
+        .logoBox {
+            text-align: center;
+
+            img {
+                width: 12rem;
+            }
+        }
+
+        ul li a {
+            @include flexSet(default, center, default);
+            margin: 8px 0;
+            padding: 14px 12px;
+            color: $wtColor;
+
+            span {
+                margin-left: 20px;
+            }
+        }
+
+        ul li a:hover {
+            padding-left: 20px;
+            background: $wtColor;
+            color: $mainColor
+        }
+    }
+
+    .containerGen {
+        @include flexSet(center, center, column);
+        @include wdSet(100vh, 100%);
+
+        .header {
+            padding: 2rem 0rem;
+            width: 60%;
+
+            h2 {
+                text-align: left;
+                color: $mainColor;
+            }
+
+            p {
+                color: $shadow5;
+                font-size: 0.8rem; 
+            }
+        }
+
+        .modalContainer {
+            text-align: left;
+            width: 60%;
+
+            .btnAdd {
+                background: none;
+                color: $mainColor;
+                cursor: pointer;
+                padding: 0.6rem 1.2rem;
+            }
+
+            #fade {
+                @include wdSet(100%, 100%);
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: $shadow6;
+                z-index: 5; 
+            }
+
+            #modal {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 500px;
+                max-width: 90%;
+                background-color: #fff;
+                padding: 1.2rem;
+                border-radius: 0.5rem;
+                z-index: 10; 
+            }
+
+            #fade, #modal {
+                transition: 0.5s;
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .modal-header {
+                @include flexSet(space-between, center, default);
+                padding: 1rem;
+
+                h2 {
+                    color: $mainColor;
+                }
+
+                #close-modal {
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    padding: 1rem;
+                    color: $rd;
+                    background: none;
+                }
+            }
+
+            .modal-body form {
+                @include flexSet(center, center, column);
+
+                input {
+                    margin: 0.2rem;
+                    padding: 0.6rem;
+                    width: 100%;
+                }
+
+                input[type="submit"] {
+                    cursor: pointer; 
+                    color: $wtColor;
+                    background: $mainColor;
+                }
+            }
+
+            #modal.hide, #fade.hide {
+                opacity: 0;
+                pointer-events: none;
+            }  
+
+            #modal.hide {
+                top: 0;
+            }
+        }
+
+        table tr th {
+            color: $mainColor;
+            padding: 0.6rem 5rem; 
+        }
+
+        table tr td {
+            padding: 0.6rem 5rem; 
+            color: $shadow5;
+            border-top: 1px solid $shadowG;
+            border-collapse: collapse;
+            text-align: center;
+
+            a i {
+                color: $shadow5;
+            }
+
+            a i:hover {
+                color: $rd;
+            }
+        }
+    }
+
+    .formContainer form input {
+        padding: 0.2rem 1rem;
+    }
+}
